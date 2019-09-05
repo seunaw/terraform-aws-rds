@@ -9,6 +9,7 @@ locals {
   enable_create_db_option_group = var.option_group_name == "" && var.engine != "postgres" ? var.create_db_option_group : false
 }
 
+
 module "db_subnet_group" {
   source = "./modules/db_subnet_group"
 
@@ -17,7 +18,7 @@ module "db_subnet_group" {
   name_prefix = "${var.identifier}-"
   subnet_ids  = var.subnet_ids
 
-  tags = var.tags
+  tags        = var.tags
 }
 
 module "db_parameter_group" {
